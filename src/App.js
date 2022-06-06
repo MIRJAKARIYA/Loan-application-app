@@ -1,10 +1,25 @@
 
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Application from "./components/Application";
+import BusinessDetails from "./components/BusinessDetails";
+import LoanDetails from "./components/LoanDetails";
+import PersonalDetails from "./components/PersonalDetails";
 
 function App() {
+
+
+
   return (
     <div className="App">
-      
+
+      <Routes>
+        <Route path="/" element={<Application></Application>}>
+          <Route path="personalDetails" element={<PersonalDetails></PersonalDetails>}></Route>
+          <Route path="businessDetails" element={<BusinessDetails></BusinessDetails>}></Route>
+          <Route path="loanDetails" element={<LoanDetails></LoanDetails>}></Route>
+        </Route>
+      </Routes>
     </div>
   );
 }
