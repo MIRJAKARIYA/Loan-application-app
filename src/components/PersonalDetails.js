@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const PersonalDetails = () => {
   const navigate = useNavigate();
 
@@ -13,11 +12,9 @@ const PersonalDetails = () => {
     const gender = e.target.gender.value;
     const about = e.target.about.value;
     const email = e.target.email.value;
-    console.log(firstName, lastName, age, gender);
-    localStorage.setItem('personEmail',email)
+    localStorage.setItem("personEmail", email);
 
-
-    fetch(`http://localhost:5000/info?email=${email}`, {
+    fetch(`https://sheltered-sierra-53369.herokuapp.com/info?email=${email}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -32,8 +29,8 @@ const PersonalDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if(data.acknowledged){
-          navigate('/businessDetails')
+        if (data.acknowledged) {
+          navigate("/businessDetails");
         }
       });
   };

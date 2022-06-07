@@ -5,6 +5,7 @@ import Application from "./components/Application";
 import ApplicationDone from "./components/ApplicationDone";
 import BusinessDetails from "./components/BusinessDetails";
 import LoanDetails from "./components/LoanDetails";
+import NotFound from "./components/NotFound";
 import PersonalDetails from "./components/PersonalDetails";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="loanDetails" element={<LoanDetails></LoanDetails>}></Route>
         </Route>
         <Route path="/applicationDone" element={<ApplicationDone></ApplicationDone>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
   );

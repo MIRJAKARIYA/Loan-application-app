@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 const BusinessDetails = () => {
   const navigate = useNavigate();
-  const email = localStorage.getItem('personEmail');
-  const handlePrev = () =>{
-    navigate('/')
-  }
+  const email = localStorage.getItem("personEmail");
+  const handlePrev = () => {
+    navigate("/");
+  };
 
   const businessDetailsSubmit = (e) => {
     e.preventDefault();
@@ -15,24 +15,25 @@ const BusinessDetails = () => {
     const businessType = e.target.businessType.value;
     const address = e.target.address.value;
 
-    console.log(businessName, gstNumber, businessName, address)
-    
-    fetch(`http://localhost:5000/business?email=${email}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        businessName: businessName,
-        gstNumber: gstNumber,
-        businessType: businessType,
-        address: address
-      }),
-    })
+    fetch(
+      `https://sheltered-sierra-53369.herokuapp.com/business?email=${email}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          businessName: businessName,
+          gstNumber: gstNumber,
+          businessType: businessType,
+          address: address,
+        }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
-        if(data.acknowledged){
-          navigate('/loanDetails')
+        if (data.acknowledged) {
+          navigate("/loanDetails");
         }
       });
   };
@@ -64,14 +65,30 @@ const BusinessDetails = () => {
           </div>
           <div className="mt-4">
             <p className="mb-2 font-semibold">Business Type:</p>
-            <input type="text" placeholder="Enter Business Type" name="businessType" id="" required/>
+            <input
+              type="text"
+              placeholder="Enter Business Type"
+              name="businessType"
+              id=""
+              required
+            />
           </div>
           <div className="mt-4">
             <p className="mb-2 font-semibold">Address:</p>
-            <textarea name="address" id="" cols="50" className="" rows="3" required></textarea>
+            <textarea
+              name="address"
+              id=""
+              cols="50"
+              className=""
+              rows="3"
+              required
+            ></textarea>
           </div>
           <div className="w-full flex justify-between mt-4">
-            <button onClick={handlePrev} className="bg-green-700 text-white text-lg px-8 py-2 mt-4">
+            <button
+              onClick={handlePrev}
+              className="bg-green-700 text-white text-lg px-8 py-2 mt-4"
+            >
               Previous
             </button>
             <button
