@@ -1,0 +1,16 @@
+input{
+    border-bottom: 1px solid rgb(168, 160, 160);
+    outline: 0;
+    width: 100%;
+    transition: 0.5s;
+}
+input:hover{
+    outline: 0;
+    
+}
+input:focus{
+    border-bottom: 1px solid blue;
+}
+textarea{
+    border: 1px solid black
+}
