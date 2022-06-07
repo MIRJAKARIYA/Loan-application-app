@@ -57,6 +57,7 @@ const LoanDetails = () => {
                   id=""
                   min="100000"
                   step="10000"
+                  required
                 />
               </div>
               <div className="mt-4">
@@ -68,6 +69,7 @@ const LoanDetails = () => {
                   id=""
                   min="5"
                   max="50"
+                  required
                 />
               </div>
               <div className="mt-4">
@@ -79,6 +81,7 @@ const LoanDetails = () => {
                   placeholder="Enter Loan Tenure"
                   name="loanTenure"
                   id=""
+                  required
                 />
               </div>
               <div className="w-full flex justify-between mt-4">
