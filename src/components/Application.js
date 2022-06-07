@@ -1,15 +1,16 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 const Application = () => {
 
-  return (
-    <div className="App">
-      <div className="tabs">
-      <NavLink className={({ isActive }) => isActive ? 'tab tab-lg tab-lifted tab-active' : 'tab tab-lg tab-lifted'} to="personalDetails">Personal Details</NavLink>
-      <NavLink className={({ isActive }) => isActive ? 'tab tab-lg tab-lifted tab-active' : 'tab tab-lg tab-lifted'} to="businessDetails">Business Details</NavLink>
-      <NavLink className={({ isActive }) => isActive ? 'tab tab-lg tab-lifted tab-active' : 'tab tab-lg tab-lifted'} to="loanDetails">Loan Details</NavLink>
+  const location = useLocation();
 
+  return (
+    <div className="h-screen" data-theme="light">
+      <div className="tabs flex justify-center">
+        <span className={location.pathname==='/'?'tab tab-lg tab-lifted tab-active':'tab tab-lg tab-lifted'}>Personal Details</span>
+        <span className={location.pathname.includes('/businessDetails')?'tab tab-lg tab-lifted tab-active':'tab tab-lg tab-lifted'}>Business Details</span>
+        <span className={location.pathname.includes('/loanDetails')?'tab tab-lg tab-lifted tab-active':'tab tab-lg tab-lifted'}>Loan Details</span>
       </div>
       <Outlet></Outlet>
     </div>
