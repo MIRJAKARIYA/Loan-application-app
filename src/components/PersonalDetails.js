@@ -76,7 +76,7 @@ const PersonalDetails = () => {
           </div>
           <div className="mt-4">
             <p className="mb-2 font-semibold">Age:</p>
-            <input type="text" placeholder="Enter Age" name="age" id="" />
+            <input type="number" placeholder="Enter Age" name="age" id="" />
           </div>
           <div className="mt-4">
             <p className="mb-2 font-semibold">Gender</p>
@@ -106,7 +106,7 @@ const PersonalDetails = () => {
                   value="others"
                   className="radio"
                 />
-                <span className="ml-1">Others</span>
+                <span className="ml-1">Other</span>
               </div>
             </div>
           </div>

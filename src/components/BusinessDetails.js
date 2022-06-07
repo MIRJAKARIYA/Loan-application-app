@@ -1,9 +1,13 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const BusinessDetails = () => {
   const navigate = useNavigate();
   const email = localStorage.getItem('personEmail');
+  const handlePrev = () =>{
+    navigate('/')
+  }
+
   const businessDetailsSubmit = (e) => {
     e.preventDefault();
     const businessName = e.target.businessName.value;
@@ -46,7 +50,6 @@ const BusinessDetails = () => {
               type="text"
               placeholder="Enter Business Name"
               name="businessName"
-              id=""
               required
             />
           </div>
@@ -56,7 +59,6 @@ const BusinessDetails = () => {
               type="text"
               name="gstNumber"
               placeholder="Enter GST Number"
-              id=""
               required
             />
           </div>
@@ -68,12 +70,17 @@ const BusinessDetails = () => {
             <p className="mb-2 font-semibold">Address:</p>
             <textarea name="address" id="" cols="50" className="" rows="3" required></textarea>
           </div>
-          <button
-            type="submit"
-            className="bg-red-700 text-white text-lg px-8 py-2 mt-4"
-          >
-            Next
-          </button>
+          <div className="w-full flex justify-between mt-4">
+            <button onClick={handlePrev} className="bg-green-700 text-white text-lg px-8 py-2 mt-4">
+              Previous
+            </button>
+            <button
+              type="submit"
+              className="bg-red-700 text-white text-lg px-8 py-2 mt-4"
+            >
+              Next
+            </button>
+          </div>
         </form>
       </div>
     </div>
